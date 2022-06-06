@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<ul>
+@foreach (var p in ViewData["pizzas"] as List<Pizza>)
+{
+    <li class="pizza_line">
+        <div>@p.Name</div>
+        <div onclick="add(@p.PizzaId)">Add</div>
+        <div id="@p.PizzaId" >0</div>
+        <div onclick="minus(@p.PizzaId)">Minus</div>
+    </li>
+}
+</ul>
+
+<script>
+    var pizzaList = Array();
+    function add(e){
+        if(pizzaList[e]){
+            pizzaList[e]=1;
+        }else{
+            pizzaList[e]+=1;
+        }
+        console.log(e)
+        document.getElementById(""+e).htmlText=pizzaList[e]
+    }
+
+    function minus(e){}
+</script>
+<style>
+    .pizza_line{
+        display:flex;
+   
+    }
+<style>

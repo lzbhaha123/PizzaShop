@@ -1,0 +1,147 @@
+/* _content/PizzaShop/Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-h675m8a8mp] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-h675m8a8mp] {
+  color: #0077cc;
+}
+
+.btn-primary[b-h675m8a8mp] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-h675m8a8mp], .nav-pills .show > .nav-link[b-h675m8a8mp] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-h675m8a8mp] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-h675m8a8mp] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-h675m8a8mp] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-h675m8a8mp] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-h675m8a8mp] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/PizzaShop/Areas/Client/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-dwv1b29rjh] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-dwv1b29rjh] {
+  color: #0077cc;
+}
+
+.btn-primary[b-dwv1b29rjh] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-dwv1b29rjh], .nav-pills .show > .nav-link[b-dwv1b29rjh] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-dwv1b29rjh] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-dwv1b29rjh] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-dwv1b29rjh] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-dwv1b29rjh] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-dwv1b29rjh] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/PizzaShop/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-dhnvmxdneb] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-dhnvmxdneb] {
+  color: #0077cc;
+}
+
+.btn-primary[b-dhnvmxdneb] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-dhnvmxdneb], .nav-pills .show > .nav-link[b-dhnvmxdneb] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-dhnvmxdneb] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-dhnvmxdneb] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-dhnvmxdneb] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-dhnvmxdneb] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-dhnvmxdneb] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
