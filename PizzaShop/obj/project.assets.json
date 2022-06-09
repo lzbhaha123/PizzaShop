@@ -9991,23 +9991,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MadBeast\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\delta\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MadBeast\\source\\repos\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
+      "projectUniqueName": "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
       "projectName": "PizzaShop",
-      "projectPath": "C:\\Users\\MadBeast\\source\\repos\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
-      "packagesPath": "C:\\Users\\MadBeast\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MadBeast\\source\\repos\\PizzaShop\\PizzaShop\\obj\\",
+      "projectPath": "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
+      "packagesPath": "C:\\Users\\delta\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\MadBeast\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\delta\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10080,7 +10076,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

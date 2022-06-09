@@ -21,7 +21,7 @@ namespace PizzaShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Pizzas
-        public async Task<IActionResult>Index()
+        public async Task<IActionResult> Index()
         {
               return _context.Pizza != null ? 
                           View(await _context.Pizza.ToListAsync()) :
@@ -57,7 +57,7 @@ namespace PizzaShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PizzaId,Name,Description,Price")] Pizza pizza)
+        public async Task<IActionResult> Create([Bind("PizzaId,Name,Description,Price,Picture")] Pizza pizza)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace PizzaShop.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PizzaId,Name,Description,Price")] Pizza pizza)
+        public async Task<IActionResult> Edit(int id, [Bind("PizzaId,Name,Description,Price,Picture")] Pizza pizza)
         {
             if (id != pizza.PizzaId)
             {

@@ -10,5 +10,6 @@ namespace PizzaShop.Models
         [Required]
         public string Description { get; set; } = string.Empty;
         public double Price { get; set; }
+        public string Picture { get; set; } = string.Empty;
     }
 }
