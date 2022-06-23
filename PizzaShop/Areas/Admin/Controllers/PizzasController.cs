@@ -23,9 +23,21 @@ namespace PizzaShop.Areas.Admin.Controllers
         // GET: Admin/Pizzas
         public async Task<IActionResult> Index()
         {
-              return _context.Pizza != null ? 
+            string username = "";
+            if (HttpContext.Session.GetString("username") != "" && HttpContext.Session.GetString("username") != null)
+            {
+                username = HttpContext.Session.GetString("username");
+                ViewData["username"] = username;
+                return _context.Pizza != null ?
                           View(await _context.Pizza.ToListAsync()) :
                           Problem("Entity set 'PizzaShopContext.Pizza'  is null.");
+            }
+            else
+            {
+                return Redirect("/admin");
+            }
+
+            
         }
 
         // GET: Admin/Pizzas/Details/5

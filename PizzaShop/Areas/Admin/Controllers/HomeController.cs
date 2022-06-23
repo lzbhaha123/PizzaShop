@@ -2,7 +2,6 @@
 using PizzaShop.Data;
 using PizzaShop.Models;
 using System.Diagnostics;
-using System.Linq;
 
 namespace PizzaShop.Areas.Admin.Controllers
 {
@@ -18,10 +17,23 @@ namespace PizzaShop.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            string username = HttpContext.Session.GetString("username");
-            if (username == ""|| username==null) { 
+            string username = "";
+            if (HttpContext.Session.GetString("username") != "" && HttpContext.Session.GetString("username") != null)
+            {
+                username = HttpContext.Session.GetString("username");
+                ViewData["username"] = username;
+                return Redirect("/admin/orders");
             }
-            return View();
+            else {
+
+                return View();
+            }
+        }
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.SetString("username", "");
+            return Redirect("/admin/home");
         }
         [HttpPost]
         public IActionResult Login()
@@ -33,7 +45,7 @@ namespace PizzaShop.Areas.Admin.Controllers
             {
                 HttpContext.Session.SetString("username", username);
             }
-            return Redirect("/Admin/Home");
+            return Redirect("/admin/orders");
 
         }
 

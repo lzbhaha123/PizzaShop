@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
 
 <div id="section_1" class="main">
 
@@ -52,7 +53,10 @@
         <h3>Your number:</h3>
         <input placeholder="Example: 022-222-2222" />
     </div>
-    <div onclick="nextStep()" class="div_button_submit">Confirm</div>
+    <!--
+        <div onclick="nextStep()" class="div_button_submit">Confirm</div>
+    -->
+    <div onclick="confirm()" class="div_button_submit">Confirm</div>
 </div>
 <div id="section_4"  class="main">
     <div class="main_panel">
@@ -112,6 +116,58 @@
        document.getElementById("totalprice").innerHTML = totalCount;
        document.getElementById("s1_totalprice").innerHTML = totalCount;
     }
+
+    function confirm(){
+        var parasheet = []
+        for(var i = 0;i<pizzaList.length;i++){
+            if(pizzaList[i]!=null){
+                parasheet.push(i+","+pizzaList[i])
+            }
+        }
+
+        var postData = { paras: parasheet };
+        var jd = JSON.stringify(postData);
+        console.log(jd);
+        $.ajax({  
+            type: "POST",  
+            url: '/client/orders/add',  
+            data: jd,  
+            contentType:"application/x-www-form-urlencoded",  //"application/json; charset=utf-8",  
+            beforeSend: function(){  
+                console.log("bs")
+            },  
+            success: function (response) {  
+              console.log("s")
+                
+            },            
+            complete: function(response){  
+                console.log(response)
+            },  
+            failure: function (jqXHR, textStatus, errorThrown) {                  
+               console.log("f")
+            }  
+        });
+
+        /*
+
+        let post = pizzaList//(postObj)
+ 
+        const url = "/client/orders/add"
+        let xhr = new XMLHttpRequest()
+ 
+        xhr.open('POST', url, true)
+        xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+        xhr.send("para=ppp");
+        
+        xhr.onload = function () {
+            if(xhr.status === 200) {
+                console.log(xhr)
+            }
+        }
+        */
+    }
+
+
     var step = 1;
 
     function prevStep(){
@@ -130,6 +186,3 @@
         document.getElementById("section_"+step).style.display="block";
     }
 </script>
-<style>
-    
-<style>

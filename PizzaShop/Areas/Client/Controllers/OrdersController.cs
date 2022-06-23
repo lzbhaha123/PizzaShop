@@ -8,102 +8,105 @@ using Microsoft.EntityFrameworkCore;
 using PizzaShop.Data;
 using PizzaShop.Models;
 
-namespace PizzaShop.Areas.Admin.Controllers
+namespace PizzaShop.Areas.Client.Controllers
 {
-    [Area("Admin")]
-    public class UsersController : Controller
+    [Area("Client")]
+    public class OrdersController : Controller
     {
         private readonly PizzaShopContext _context;
 
-        public UsersController(PizzaShopContext context)
+        public OrdersController(PizzaShopContext context)
         {
             _context = context;
         }
+      
+        public IActionResult Add()
+        {
+            return Content(Request.Form["paras"]);
+        }
 
-        // GET: Admin/Users
+        // GET: Admin/Orders
         public async Task<IActionResult> Index()
         {
-              
-
             string username = "";
             if (HttpContext.Session.GetString("username") != "" && HttpContext.Session.GetString("username") != null)
             {
                 username = HttpContext.Session.GetString("username");
                 ViewData["username"] = username;
-                return _context.User != null ?
-                          View(await _context.User.ToListAsync()) :
-                          Problem("Entity set 'PizzaShopContext.User'  is null.");
+                return _context.Order != null ?
+                          View(await _context.Order.ToListAsync()) :
+                          Problem("Entity set 'PizzaShopContext.Order'  is null.");
             }
             else
             {
                 return Redirect("/admin");
-            }
+            }            
         }
 
-        // GET: Admin/Users/Details/5
+        // GET: Admin/Orders/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
+            var order = await _context.Order
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (order == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(order);
         }
 
-        // GET: Admin/Users/Create
+        // GET: Admin/Orders/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/Users/Create
+        // POST: Admin/Orders/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("UserId,Username,Password,Name,Phone")] User user)
+        public async Task<IActionResult> Create([Bind("OrderId,ClientName,ClientPhone,Status")] Order order)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(user);
+                _context.Add(order);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(order);
         }
 
-        // GET: Admin/Users/Edit/5
+        // GET: Admin/Orders/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-            if (user == null)
+            var order = await _context.Order.FindAsync(id);
+            if (order == null)
             {
                 return NotFound();
             }
-            return View(user);
+            return View(order);
         }
 
-        // POST: Admin/Users/Edit/5
+        // POST: Admin/Orders/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("UserId,Username,Password,Name,Phone")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("OrderId,ClientName,ClientPhone,Status")] Order order)
         {
-            if (id != user.UserId)
+            if (id != order.OrderId)
             {
                 return NotFound();
             }
@@ -112,12 +115,12 @@ namespace PizzaShop.Areas.Admin.Controllers
             {
                 try
                 {
-                    _context.Update(user);
+                    _context.Update(order);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(user.UserId))
+                    if (!OrderExists(order.OrderId))
                     {
                         return NotFound();
                     }
@@ -128,49 +131,49 @@ namespace PizzaShop.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(user);
+            return View(order);
         }
 
-        // GET: Admin/Users/Delete/5
+        // GET: Admin/Orders/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.User == null)
+            if (id == null || _context.Order == null)
             {
                 return NotFound();
             }
 
-            var user = await _context.User
-                .FirstOrDefaultAsync(m => m.UserId == id);
-            if (user == null)
+            var order = await _context.Order
+                .FirstOrDefaultAsync(m => m.OrderId == id);
+            if (order == null)
             {
                 return NotFound();
             }
 
-            return View(user);
+            return View(order);
         }
 
-        // POST: Admin/Users/Delete/5
+        // POST: Admin/Orders/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.User == null)
+            if (_context.Order == null)
             {
-                return Problem("Entity set 'PizzaShopContext.User'  is null.");
+                return Problem("Entity set 'PizzaShopContext.Order'  is null.");
             }
-            var user = await _context.User.FindAsync(id);
-            if (user != null)
+            var order = await _context.Order.FindAsync(id);
+            if (order != null)
             {
-                _context.User.Remove(user);
+                _context.Order.Remove(order);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool UserExists(int id)
+        private bool OrderExists(int id)
         {
-          return (_context.User?.Any(e => e.UserId == id)).GetValueOrDefault();
+          return (_context.Order?.Any(e => e.OrderId == id)).GetValueOrDefault();
         }
     }
 }
