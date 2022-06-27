@@ -1,0 +1,24 @@
+﻿@*
+    ViewData["Title"] = "Thank you!";
+*@
+@{
+}
+<div id="section_4"  class="main" style="display:block">
+    <div class="main_panel">
+        <h1 class="final">Thank you!</h1>
+        <p class="final"> We will finish your gourmet pizza soon! </p>
+        <div class="order_place">
+            <p class="final"> You number is: </p>
+            <h2>@ViewData["oid"]</h2>
+        </div>
+        
+    </div>
+    <div onclick="backToHome()" class="div_button_submit">Back to home</div>
+</div>
+<script>
+    function backToHome(){
+        window.location.href="/client"
+
+    }
+</script>
+

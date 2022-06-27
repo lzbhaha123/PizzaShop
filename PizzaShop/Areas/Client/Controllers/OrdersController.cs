@@ -22,7 +22,30 @@ namespace PizzaShop.Areas.Client.Controllers
       
         public IActionResult Add()
         {
-            return Content(Request.Form["paras"]);
+            string details = HttpContext.Request.Form["order_detail"];
+            string name = HttpContext.Request.Form["order_name"];
+            string phone = HttpContext.Request.Form["order_phone"];
+            int oid = new Random().Next(0,1000000);
+            _context.Add(new Order(oid, name, phone, "", 1));
+            _context.SaveChanges();
+            details = details.Substring(0,details.Length-1);
+            string[] list = details.Split(":");
+            for(int i = 0; i < list.Length; i++)
+            {
+                int opid = _context.OrderPizza.Count() + 1;
+                string[] each = list[i].Split(",");
+                //int o = _context.Order.OrderBy(o => o.OrderId).Last().OrderId;
+                //Order o = _context.Order.First(m => m.OrderId == 1);
+                //Pizza p = _context.Pizza.First(m => m.PizzaId == Int32.Parse(each[0])); //_context.Pizza.FirstOrDefaultAsync(m => m.PizzaId == Int32.Parse(each[0]));
+                _context.Add(new OrderPizza(_context.OrderPizza.Count()+1, oid, Int32.Parse(each[0]), Int32.Parse(each[1])));
+                _context.SaveChanges();
+            }
+
+            //return Content(oid + "");
+
+            ViewData["oid"] = oid;
+
+            return View();
         }
 
         // GET: Admin/Orders

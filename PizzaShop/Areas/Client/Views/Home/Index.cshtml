@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> 
+
 
 <div id="section_1" class="main">
 
@@ -10,7 +10,7 @@
     {
         <div>
             <img src="@p.Picture" >
-            <p>@p.Name</p>
+            <p class="each_name">@p.Name</p>
             <div class="each_price">Price:$@p.Price</div>
             <div class="each_description">@p.Description</div>
             <div class="selection_bar">
@@ -31,10 +31,10 @@
 </div>
 <div id="section_2"  class="main">
     <div onclick="prevStep()" class="div_button_submit">Back</div>
-    <ul class="pizza_panel main_panel">
+    <ul id="pp_ul" class="pizza_panel main_panel">
     @foreach (var p in ViewData["pizzas"] as List<Pizza>)
     {
-        <li class="pizza_line">
+        <li id="t_@(p.PizzaId)" class="pizza_line">
             <div><span>@p.Name</span></div>
             <div class="div_button" onclick="add(@p.PizzaId)">Add</div>
             <div id="@p.PizzaId" >0</div>
@@ -48,23 +48,23 @@
 <div id="section_3"  class="main">
     <div onclick="prevStep()" class="div_button_submit">Back</div>
     <div class="main_panel pizza_panel">
-        <h3>Your name:</h3>
-        <input placeholder="Example: Bruce Smith" />
-        <h3>Your number:</h3>
-        <input placeholder="Example: 022-222-2222" />
+        
+        <form id="order_form" action="/client/orders/add" method="post">
+            <h3>Your name:</h3>
+            <input id="order_name" name="order_name" placeholder="Example: Bruce Smith" />
+            <h3>Your number:</h3>
+            <input id="order_phone" name="order_phone" placeholder="Example: 022-222-2222" />
+            <input id="order_detail" name="order_detail" type="hidden"  />
+            <div onclick="confirm()" class="div_button_submit">Confirm</div>
+            <!--<button type="submit" class="div_button_submit">Confirm</button>-->
+        </form>
+        
+        
     </div>
-    <!--
-        <div onclick="nextStep()" class="div_button_submit">Confirm</div>
-    -->
-    <div onclick="confirm()" class="div_button_submit">Confirm</div>
+
+    
 </div>
-<div id="section_4"  class="main">
-    <div class="main_panel">
-        <h1 class="final">Thank you!</h1>
-        <p class="final"> We will finish your gourmet pizza soon! </p>
-    </div>
-    <div onclick="backToHome()" class="div_button_submit">Back to home</div>
-</div>
+
 <div id="pricelist">
     @foreach (var p in ViewData["pizzas"] as List<Pizza>)
     {
@@ -118,53 +118,19 @@
     }
 
     function confirm(){
-        var parasheet = []
+        console.log(pizzaList);
+        var parasheet = "";
         for(var i = 0;i<pizzaList.length;i++){
             if(pizzaList[i]!=null){
-                parasheet.push(i+","+pizzaList[i])
+                parasheet += i+","+pizzaList[i]+":";
             }
+            
         }
-
-        var postData = { paras: parasheet };
-        var jd = JSON.stringify(postData);
-        console.log(jd);
-        $.ajax({  
-            type: "POST",  
-            url: '/client/orders/add',  
-            data: jd,  
-            contentType:"application/x-www-form-urlencoded",  //"application/json; charset=utf-8",  
-            beforeSend: function(){  
-                console.log("bs")
-            },  
-            success: function (response) {  
-              console.log("s")
-                
-            },            
-            complete: function(response){  
-                console.log(response)
-            },  
-            failure: function (jqXHR, textStatus, errorThrown) {                  
-               console.log("f")
-            }  
-        });
-
-        /*
-
-        let post = pizzaList//(postObj)
- 
-        const url = "/client/orders/add"
-        let xhr = new XMLHttpRequest()
- 
-        xhr.open('POST', url, true)
-        xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
-        xhr.send("para=ppp");
+        //console.log(parasheet);
+        document.getElementById("order_detail").value=parasheet;
+        document.getElementById("order_form").submit();
         
-        xhr.onload = function () {
-            if(xhr.status === 200) {
-                console.log(xhr)
-            }
-        }
-        */
+
     }
 
 
@@ -173,16 +139,20 @@
     function prevStep(){
         document.getElementById("section_"+step).style.display="none";
         step-=1;
+        //setTrolly();
         document.getElementById("section_"+step).style.display="block";
     }
     function nextStep(){
         document.getElementById("section_"+step).style.display="none";
         step+=1;
+       // setTrolly();
         document.getElementById("section_"+step).style.display="block";
     }
-    function backToHome(){
-        document.getElementById("section_"+step).style.display="none";
-        step=1;
-        document.getElementById("section_"+step).style.display="block";
+    function setTrolly(){
+        if(step==2){
+            var pl = document.getElementById("pp_ul").children();
+            console.log(pl);
+            document.getElementById(""+e).innerHTML=pizzaList[e];
+        }
     }
 </script>

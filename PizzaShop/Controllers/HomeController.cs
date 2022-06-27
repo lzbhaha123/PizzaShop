@@ -15,7 +15,8 @@ namespace PizzaShop.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //return View();
+            return Redirect("/client/");
         }
 
         public IActionResult Privacy()

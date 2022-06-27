@@ -19,5 +19,6 @@ namespace PizzaShop.Data
         public DbSet<PizzaShop.Models.User>? User { get; set; }
 
         public DbSet<PizzaShop.Models.Order>? Order { get; set; }
+        public DbSet<PizzaShop.Models.OrderPizza>? OrderPizza { get; set; }
     }
 }
