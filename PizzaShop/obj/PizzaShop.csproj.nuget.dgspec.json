@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\PizzaShop.csproj": {}
+    "C:\\Users\\lzban\\Development\\PizzaShop\\PizzaShop\\PizzaShop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\PizzaShop.csproj": {
+    "C:\\Users\\lzban\\Development\\PizzaShop\\PizzaShop\\PizzaShop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
+        "projectUniqueName": "C:\\Users\\lzban\\Development\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
         "projectName": "PizzaShop",
-        "projectPath": "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
-        "packagesPath": "C:\\Users\\delta\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\delta\\Desktop\\pizzashop\\PizzaShop\\PizzaShop\\obj\\",
+        "projectPath": "C:\\Users\\lzban\\Development\\PizzaShop\\PizzaShop\\PizzaShop.csproj",
+        "packagesPath": "C:\\Users\\lzban\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lzban\\Development\\PizzaShop\\PizzaShop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\delta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lzban\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -87,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

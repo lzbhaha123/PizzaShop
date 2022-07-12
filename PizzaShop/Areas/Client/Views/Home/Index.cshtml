@@ -52,8 +52,10 @@
         <form id="order_form" action="/client/orders/add" method="post">
             <h3>Your name:</h3>
             <input id="order_name" name="order_name" placeholder="Example: Bruce Smith" />
+            <p id="namelabel">Please enter your name.</p>
             <h3>Your number:</h3>
             <input id="order_phone" name="order_phone" placeholder="Example: 022-222-2222" />
+            <p id="phonelabel">Please enter your phone number.</p>
             <input id="order_detail" name="order_detail" type="hidden"  />
             <div onclick="confirm()" class="div_button_submit">Confirm</div>
             <!--<button type="submit" class="div_button_submit">Confirm</button>-->
@@ -72,6 +74,10 @@
     }
 </div>
 <script>
+    (function() {
+        document.getElementById("namelabel").style.color="#ffffff"
+        document.getElementById("phonelabel").style.color="#ffffff"
+    })()
     var pizzaList = [];
     var totalCount=0;
     var countList = []
@@ -118,7 +124,7 @@
     }
 
     function confirm(){
-        console.log(pizzaList);
+        
         var parasheet = "";
         for(var i = 0;i<pizzaList.length;i++){
             if(pizzaList[i]!=null){
@@ -127,6 +133,16 @@
             
         }
         //console.log(parasheet);
+        if (parasheet == "") {
+            alert("you have not order any pizza yet.");
+        }
+        if (document.getElementById("order_name").value == "") {
+            document.getElementById("namelabel").style.color="#aa0000"
+        }
+        if (document.getElementById("order_phone").value == "") {
+            document.getElementById("phonelabel").style.color="#aa0000"
+        }
+        
         document.getElementById("order_detail").value=parasheet;
         document.getElementById("order_form").submit();
         
